@@ -1,3 +1,5 @@
+import pandas as pd
+
 # Parameters
 year_start = 2010
 year_end = 2020
@@ -19,3 +21,11 @@ print('Expense proportion: ' + str(expense_proportion))
 print('Expense categories: ' + str(expense_categories))
 print('Income categories: ' + str(income_categories))
 print('Cost centers: ' + str(cost_centers))
+
+writer = pd.ExcelWriter('test_file.xlsx', engine='xlsxwriter')
+
+
+final_matrix = pd.DataFrame()
+
+final_matrix.to_excel(writer,'Sheet1')
+writer.save()
